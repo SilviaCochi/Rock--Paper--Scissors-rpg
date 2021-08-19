@@ -5,7 +5,7 @@ let userScore = 0;
 
 function startGame() {
 
-    var userChoice =  prompt("Do you choose rock, paper or scissors? ");
+    let userChoice = prompt("Do you choose rock, paper or scissors? ").toString().toLowerCase();
     let options = ["rock", "paper", "scissors"];
     computerChoice = options[Math.floor(Math.random()*options.length)];
     console.log("Computer chose: " + computerChoice);
