@@ -17,39 +17,39 @@ function startGame() {
         else if (choice1 === "rock") {
             if (choice2 === "scissors") {
                 userScore += 1;
-                return "rock wins";
+                console.log("You win");
             }
-            else {
+        else {
                 computerScore += 1;
-                return console.log("paper wins");
-                
+                console.log("Computer wins");
+
             }
-        }     
+        }
         else if (choice1 === "paper") {
             if (choice2 === "rock") {
-                console.log("paper wins");
+                console.log("You win");
                 userScore += 1;
             }
             else {
-                console.log("scissors wins");
+                console.log("Computer wins");
                 computerScore += 1;
             }
         }
         else if (choice1 === "scissors") {
             if (choice2 === "paper") {
-                console.log("scissors wins");
+                console.log("You win");
                 userScore += 1;
             }
             else {
-                console.log("rock wins");
+                console.log("Computer wins");
                 computerScore += 1;
             }
         } else console.log("You must choose rock, paper or scissors.");
-            
+
     } 
 
     compare(userChoice,computerChoice);
-    
+
 
     let playAgain = prompt("Would you like another round? y/n ");
 
