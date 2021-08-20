@@ -19,12 +19,12 @@ function startGame() {
                 userScore += 1;
                 console.log(name + " wins!");
             }
-            else {
+        else {
                 computerScore += 1;
                 console.log("Computer wins");
                 
             }
-        }     
+        }
         else if (choice1 === "paper") {
             if (choice2 === "rock") {
                 console.log(name + " wins!");
@@ -45,11 +45,11 @@ function startGame() {
                 computerScore += 1;
             }
         } else console.log("You must choose rock, paper or scissors.");
-            
+
     } 
 
     compare(userChoice,computerChoice);
-    
+
 
     let playAgain = prompt("Would you like another round? y/n ");
 
