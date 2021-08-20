@@ -1,32 +1,38 @@
-const PromptSync = require("prompt-sync");
+const prompt = require("prompt-sync")();
 
 class RockPaperScissors {
-    constructor () {
-        this.prompt= PromptSync.createPromptModule();
-        this.userScore=0;
-        this.computerScore=0;
-        this.name=prompt.createPromptModule();
+    constructor (Name) {
+        this.userScore=userScore;
+        this.computerScore=computerScore;
+        this.Name = Name;
     }
 
-    let name = prompt("Hello! What is your name? ");
+    userName (take) {
+        this.Name = take;
+    }
+
+    saveComputerScore () {return (this.computerScore)
+    }
 
     startGame() {
 
         let userChoice =  prompt("Do you choose rock, paper or scissors? ").toString().toLowerCase();
-        // let options = ["rock", "paper", "scissors"];
-        // computerChoice = options[Math.floor(Math.random()*options.length)];
-        console.log("Computer chose: " + computerChoice);
+        let options = ["rock", "paper", "scissors"];
+        let computerChoice = options[Math.floor(Math.random()*options.length)];
+        console.log(`Computer chose: ${computerChoice}`);
+        this.compare(userChoice, computerChoice);
+    }
 
-        let compare = function(choice1,choice2) {
+    compare (choice1,choice2) {
             if (choice1 === choice2) {
                 console.log("The result is a tie!");
             }
             else if (choice1 === "rock") {
                 if (choice2 === "scissors") {
-                    userScore += 1;
-                    console.log(name + " wins!");
+                    this.userScore ++;
+                    console.log(`${this.Name} wins!`);
                 }
-            else {
+                else {
                     computerScore += 1;
                     console.log("Computer wins");
                     
@@ -34,48 +40,37 @@ class RockPaperScissors {
             }
             else if (choice1 === "paper") {
                 if (choice2 === "rock") {
-                    console.log(name + " wins!");
-                    userScore += 1;
+                    console.log(`${this.Name} wins!`);
+                    this.userScore += 1;
                 }
                 else {
                     console.log("Computer wins");
-                    computerScore += 1;
+                    this.computerScore += 1;
                 }
             }
             else if (choice1 === "scissors") {
                 if (choice2 === "paper") {
-                    console.log(name + " wins!");
-                    userScore += 1;
+                    console.log(`${this.Name} wins!`);
+                    this.userScore += 1;
                 }
                 else {
                     console.log("Computer wins");
-                    computerScore += 1;
+                    this.computerScore += 1;
                 }
             } else console.log("You must choose rock, paper or scissors.");
-
-        } 
-
-        get userChoice() {
-            return this.prompt("Do you choose rock, paper or scissors? ").toString().toLowerCase();
-        }
-
-        compare(userChoice,computerChoice);
-
-
-        playAgain () ;{
-            
-            let newRound = prompt("Would you like another round? y/n ");
-
-            if (newRound === "y") {
-                startGame();
-            } else {
-                console.log ("Thank you for playing " + name + "!");
-                console.log(name + "'s score is : " + userScore + ", Computer score is : " + computerScore);
-            }
-        }
     }
 
-    startGame();
+    playAgain () {
+            
+        let newRound = prompt("Would you like another round? y/n ");
+
+        if (newRound === "y") {
+            this.startGame();
+        } else {
+            console.log (`Thank you for playing ${this.Name} !`);
+            console.log(`${this.Name}'s score is : ${userScore}, Computer score is : ${this.computerScore}`);
+        }
+    }
 }
 
-module.exports = {RockPaperScissors};
+module.exports = RockPaperScissors;
