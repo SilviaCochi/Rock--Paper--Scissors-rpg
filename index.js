@@ -1,11 +1,11 @@
 const prompt = require('prompt-sync')();
 let computerScore = 0;
 let userScore = 0;
-//let rounds = prompt("How many rounds would you like to play?");
+var name = prompt("Hello! What is your name? ")
 
 function startGame() {
 
-    var userChoice =  prompt("Do you choose rock, paper or scissors? ");
+    var userChoice =  prompt("Do you choose rock, paper or scissors? ").toString().toLowerCase();
     let options = ["rock", "paper", "scissors"];
     computerChoice = options[Math.floor(Math.random()*options.length)];
     console.log("Computer chose: " + computerChoice);
@@ -17,31 +17,31 @@ function startGame() {
         else if (choice1 === "rock") {
             if (choice2 === "scissors") {
                 userScore += 1;
-                return "rock wins";
+                console.log(name + " wins!");
             }
             else {
                 computerScore += 1;
-                return console.log("paper wins");
+                console.log("Computer wins");
                 
             }
         }     
         else if (choice1 === "paper") {
             if (choice2 === "rock") {
-                console.log("paper wins");
+                console.log(name + " wins!");
                 userScore += 1;
             }
             else {
-                console.log("scissors wins");
+                console.log("Computer wins");
                 computerScore += 1;
             }
         }
         else if (choice1 === "scissors") {
             if (choice2 === "paper") {
-                console.log("scissors wins");
+                console.log(name + " wins!");
                 userScore += 1;
             }
             else {
-                console.log("rock wins");
+                console.log("Computer wins");
                 computerScore += 1;
             }
         } else console.log("You must choose rock, paper or scissors.");
@@ -56,8 +56,8 @@ function startGame() {
         if (playAgain === "y") {
             startGame();
         } else {
-            console.log ("Thank you for playing!");
-            console.log("Your score is : " + userScore + ", computer score is : " + computerScore);
+            console.log ("Thank you for playing " + name + "!");
+            console.log(name + "'s score is : " + userScore + ", Computer score is : " + computerScore);
         }
 }
 
