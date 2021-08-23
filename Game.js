@@ -2,9 +2,9 @@ const prompt = require("prompt-sync")();
 
 class RockPaperScissors {
     constructor (Name) {
-        this.userScore=userScore;
-        this.computerScore=computerScore;
-        this.Name = Name;
+        this.userScore= 0;
+        this.computerScore= 0;
+        this.Name = null;
     }
 
     userName (take) {
@@ -21,6 +21,7 @@ class RockPaperScissors {
         let computerChoice = options[Math.floor(Math.random()*options.length)];
         console.log(`Computer chose: ${computerChoice}`);
         this.compare(userChoice, computerChoice);
+        this.playAgain();
     }
 
     compare (choice1,choice2) {
@@ -33,7 +34,7 @@ class RockPaperScissors {
                     console.log(`${this.Name} wins!`);
                 }
                 else {
-                    computerScore += 1;
+                    this.computerScore += 1;
                     console.log("Computer wins");
                     
                 }
@@ -68,7 +69,7 @@ class RockPaperScissors {
             this.startGame();
         } else {
             console.log (`Thank you for playing ${this.Name} !`);
-            console.log(`${this.Name}'s score is : ${userScore}, Computer score is : ${this.computerScore}`);
+            console.log(`${this.Name}'s score is : ${this.userScore}, Computer score is : ${this.computerScore}`);
         }
     }
 }

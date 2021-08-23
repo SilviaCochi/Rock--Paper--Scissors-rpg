@@ -1,12 +1,12 @@
 const RockPaperScissors = require("./Game.js")
 const prompt = require("prompt-sync")();
 const game = new RockPaperScissors()
+let takeName = prompt("Hello! What is your name? ");
 
 function gameOn (){
-    let takeName = prompt("Hello! What is your name? ");
+    
     game.userName(takeName);
     game.startGame();
-    game.playAgain();
     }
 
 gameOn()
